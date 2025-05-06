@@ -18,14 +18,12 @@ app.use(express.json())
 mongoose.connect(MONGOOSE_URI).then(() => console.log('Database connected...')).catch((err) => console.log(`Failed to connect: ${err.message}`))
 
 app.get('/', (req, res) => {
-    res.send('Hello World!!')
+    res.send('Hello Dee!!')
 })
 
 
 app.use('/api/auth', authRoutes)
-app.use('/api', userRoutes)
-app.use('/api', productRoutes)
-app.use('/api', cartRoutes)
+app.use('/api', userRoutes, productRoutes, cartRoutes)
 
 app.listen(PORT, (req, res) => {
     console.log(`Server running on port ${PORT}`)
